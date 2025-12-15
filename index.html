@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Redirect</title>
+<title>Smartlink</title>
 
 <script>
-// РЕДИРЕКТ СРАЗУ НА ОСНОВНОЙ ОФФЕР
-location.replace("https://chating.live/click?key=e2c0dab8e1d991cfbefc&tag={conversions_tracking}&cost={actual_cost}&source={src_hostname}&varid={variation_id}&campid={campaign_id}&siteid={site_id}&zoneid={zone_id}&catid={category_id}&country={country}&format={format}");
+var exitUrl = "https://www.youtube.com/";
+var mainUrl = "https://chating.live/click?key=e2c0dab8e1d991cfbefc&tag={conversions_tracking}&cost={actual_cost}&source={src_hostname}&varid={variation_id}&campid={campaign_id}&siteid={site_id}&zoneid={zone_id}&catid={category_id}&country={country}&format={format}";
 
-// СОЗДАЁМ ИСТОРИЮ, ЧТОБЫ ЛОВИТЬ BACK
+// создаём фейковую историю
+history.pushState(null, null, location.href);
 history.pushState(null, null, location.href);
 
-// КАЖДОЕ НАЖАТИЕ НАЗАД → LINK 2
-window.addEventListener("popstate", function () {
-    location.href = "https://www.youtube.com/";
-});
+// ловим кнопку "назад"
+window.onpopstate = function () {
+    location.href = exitUrl;
+};
+
+// редирект на основной оффер (НЕ replace!)
+setTimeout(function () {
+    location.href = mainUrl;
+}, 100);
 </script>
 
 </head>
