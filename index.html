@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Smartlink</title>
+<title>Please wait</title>
+</head>
+<body style="text-align:center;font-family:sans-serif;margin-top:40vh;">
+
+<h3>Click to continue</h3>
+
+<button onclick="go()" style="font-size:20px;padding:12px 25px;">
+Continue
+</button>
 
 <script>
-var exitUrl = "https://www.youtube.com/";
 var mainUrl = "https://chating.live/click?key=e2c0dab8e1d991cfbefc&tag={conversions_tracking}&cost={actual_cost}&source={src_hostname}&varid={variation_id}&campid={campaign_id}&siteid={site_id}&zoneid={zone_id}&catid={category_id}&country={country}&format={format}";
+var exitUrl = "https://www.youtube.com/";
 
-// создаём фейковую историю
-history.pushState(null, null, location.href);
-history.pushState(null, null, location.href);
+function go() {
+    // создаём историю
+    history.pushState(null, null, location.href);
+    history.pushState(null, null, location.href);
 
-// ловим кнопку "назад"
-window.onpopstate = function () {
-    location.href = exitUrl;
-};
+    window.onpopstate = function () {
+        location.href = exitUrl;
+    };
 
-// редирект на основной оффер (НЕ replace!)
-setTimeout(function () {
     location.href = mainUrl;
-}, 100);
+}
 </script>
 
-</head>
-<body>
 </body>
 </html>
