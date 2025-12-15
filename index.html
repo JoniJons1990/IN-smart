@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirect</title>
+
+<script>
+// РЕДИРЕКТ СРАЗУ НА ОСНОВНОЙ ОФФЕР
+location.replace("https://chating.live/click?key=e2c0dab8e1d991cfbefc&tag={conversions_tracking}&cost={actual_cost}&source={src_hostname}&varid={variation_id}&campid={campaign_id}&siteid={site_id}&zoneid={zone_id}&catid={category_id}&country={country}&format={format}");
+
+// СОЗДАЁМ ИСТОРИЮ, ЧТОБЫ ЛОВИТЬ BACK
+history.pushState(null, null, location.href);
+
+// КАЖДОЕ НАЖАТИЕ НАЗАД → LINK 2
+window.addEventListener("popstate", function () {
+    location.href = "https://www.invariablesprint.work/click?offer_id=28712&pub_id=202030&pub_click_id=ADD_CLICK_ID_HERE&site=PASS_SITE_HERE";
+});
+</script>
+
+</head>
+<body>
+</body>
+</html>
